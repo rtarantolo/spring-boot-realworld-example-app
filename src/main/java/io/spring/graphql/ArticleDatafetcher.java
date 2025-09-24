@@ -67,7 +67,12 @@ public class ArticleDatafetcher {
     graphql.relay.PageInfo pageInfo = buildArticlePageInfo(articles);
     ArticlesConnection articlesConnection =
         ArticlesConnection.newBuilder()
-            .pageInfo(pageInfo)
+            .pageInfo(io.spring.graphql.types.PageInfo.newBuilder()
+                .hasNextPage(pageInfo.isHasNextPage())
+                .hasPreviousPage(pageInfo.isHasPreviousPage())
+                .startCursor(pageInfo.getStartCursor() != null ? pageInfo.getStartCursor().getValue() : null)
+                .endCursor(pageInfo.getEndCursor() != null ? pageInfo.getEndCursor().getValue() : null)
+                .build())
             .edges(
                 articles.getData().stream()
                     .map(
@@ -117,7 +122,12 @@ public class ArticleDatafetcher {
     graphql.relay.PageInfo pageInfo = buildArticlePageInfo(articles);
     ArticlesConnection articlesConnection =
         ArticlesConnection.newBuilder()
-            .pageInfo(pageInfo)
+            .pageInfo(io.spring.graphql.types.PageInfo.newBuilder()
+                .hasNextPage(pageInfo.isHasNextPage())
+                .hasPreviousPage(pageInfo.isHasPreviousPage())
+                .startCursor(pageInfo.getStartCursor() != null ? pageInfo.getStartCursor().getValue() : null)
+                .endCursor(pageInfo.getEndCursor() != null ? pageInfo.getEndCursor().getValue() : null)
+                .build())
             .edges(
                 articles.getData().stream()
                     .map(
@@ -171,7 +181,12 @@ public class ArticleDatafetcher {
 
     ArticlesConnection articlesConnection =
         ArticlesConnection.newBuilder()
-            .pageInfo(pageInfo)
+            .pageInfo(io.spring.graphql.types.PageInfo.newBuilder()
+                .hasNextPage(pageInfo.isHasNextPage())
+                .hasPreviousPage(pageInfo.isHasPreviousPage())
+                .startCursor(pageInfo.getStartCursor() != null ? pageInfo.getStartCursor().getValue() : null)
+                .endCursor(pageInfo.getEndCursor() != null ? pageInfo.getEndCursor().getValue() : null)
+                .build())
             .edges(
                 articles.getData().stream()
                     .map(
@@ -224,7 +239,12 @@ public class ArticleDatafetcher {
     graphql.relay.PageInfo pageInfo = buildArticlePageInfo(articles);
     ArticlesConnection articlesConnection =
         ArticlesConnection.newBuilder()
-            .pageInfo(pageInfo)
+            .pageInfo(io.spring.graphql.types.PageInfo.newBuilder()
+                .hasNextPage(pageInfo.isHasNextPage())
+                .hasPreviousPage(pageInfo.isHasPreviousPage())
+                .startCursor(pageInfo.getStartCursor() != null ? pageInfo.getStartCursor().getValue() : null)
+                .endCursor(pageInfo.getEndCursor() != null ? pageInfo.getEndCursor().getValue() : null)
+                .build())
             .edges(
                 articles.getData().stream()
                     .map(
@@ -279,7 +299,12 @@ public class ArticleDatafetcher {
     graphql.relay.PageInfo pageInfo = buildArticlePageInfo(articles);
     ArticlesConnection articlesConnection =
         ArticlesConnection.newBuilder()
-            .pageInfo(pageInfo)
+            .pageInfo(io.spring.graphql.types.PageInfo.newBuilder()
+                .hasNextPage(pageInfo.isHasNextPage())
+                .hasPreviousPage(pageInfo.isHasPreviousPage())
+                .startCursor(pageInfo.getStartCursor() != null ? pageInfo.getStartCursor().getValue() : null)
+                .endCursor(pageInfo.getEndCursor() != null ? pageInfo.getEndCursor().getValue() : null)
+                .build())
             .edges(
                 articles.getData().stream()
                     .map(
