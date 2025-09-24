@@ -81,7 +81,12 @@ public class CommentDatafetcher {
     graphql.relay.PageInfo pageInfo = buildCommentPageInfo(comments);
     CommentsConnection result =
         CommentsConnection.newBuilder()
-            .pageInfo(pageInfo)
+            .pageInfo(io.spring.graphql.types.PageInfo.newBuilder()
+                .hasNextPage(pageInfo.isHasNextPage())
+                .hasPreviousPage(pageInfo.isHasPreviousPage())
+                .startCursor(pageInfo.getStartCursor() != null ? pageInfo.getStartCursor().getValue() : null)
+                .endCursor(pageInfo.getEndCursor() != null ? pageInfo.getEndCursor().getValue() : null)
+                .build())
             .edges(
                 comments.getData().stream()
                     .map(
